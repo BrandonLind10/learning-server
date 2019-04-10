@@ -1,5 +1,6 @@
 
 let messageEl = document.getElementsByClassName("message")[0];
+let button = document.getElementsByClassName("request-button");
 
 function request(){
     let httpRequest = new XMLHttpRequest();
@@ -8,11 +9,14 @@ function request(){
     httpRequest.send();
 
     
+    //creates on ready state callback
     function stateChange(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
+                //parse response, updates html
                 let response= JSON.parse(httpRequest.responseText);
                 alert(response);
+                //
                 messageEl.textContent= response;
             }
             else {
@@ -26,4 +30,4 @@ function request(){
     }
 }
 
-request();
+button.addEventListener("click", request);
