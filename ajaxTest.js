@@ -1,6 +1,6 @@
 
 let messageEl = document.getElementsByClassName("message")[0];
-let button = document.getElementsByClassName("request-button");
+let button = document.getElementsByClassName("request-button")[0];
 
 function request(){
     let httpRequest = new XMLHttpRequest();
