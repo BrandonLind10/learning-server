@@ -11,8 +11,9 @@ function request(){
     function stateChange(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
-                console.log(httpRequest.responseText);
-                messageEl.textContent= httpRequest.responseText;
+                let response= JSON.parse(httpRequest.responeText);
+                console.log();
+                messageEl.textContent= response;
             }
         }
         console.log("ran");
