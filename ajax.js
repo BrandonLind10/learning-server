@@ -12,7 +12,7 @@ function request(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
                 console.log(httpRequest.responseText);
-                messageEl.textContent=httpRequest.responsetext;
+                messageEl.textContent= httpRequest.responseText;
             }
         }
         console.log("ran");
