@@ -14,7 +14,7 @@ function request(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
                 //parse response, updates html
-                let response= JSON.parse(httpRequest.responseText);
+                let response= httpRequest.responseText;
                 alert(response);
                 //
                 messageEl.textContent= response;
