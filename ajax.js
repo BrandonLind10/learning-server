@@ -9,7 +9,7 @@ function request(){
             console.log(httpRequest.responseText);
         }
     }
-    
+    console.log("ran");
 }
 
 request();
