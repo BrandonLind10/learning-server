@@ -4,7 +4,7 @@ let messageEl = document.getElementsByClassName("message")[0];
 function request(){
     let httpRequest = new XMLHttpRequest();
     
-    httpRequest.open("GET", "content.txt");
+    httpRequest.open("GET", "https://brandonlind10.github.io/learning-server/content.txt");
     httpRequest.send();
     httpRequest.onreadystatechange= stateChange;
     
@@ -15,6 +15,12 @@ function request(){
                 console.log();
                 messageEl.textContent= response;
             }
+            else {
+                console.log("something went wrong " + httpRequest.status);
+            }
+        }
+        else{
+            console.log("something went wrong");
         }
         console.log("ran");
     }
