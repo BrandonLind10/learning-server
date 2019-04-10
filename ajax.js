@@ -6,14 +6,17 @@ function request(){
     
     httpRequest.open("GET", "https://brandonlind10.github.io/learning-server/content.txt");
     httpRequest.send();
+    httpRequest.onreadystatechange= stateChange;
     
-    if(httpRequest.readyState === 4){
-        if(httpRequest.status === 200){
-            console.log(httpRequest.responseText);
-            messageEl.textContent=httpRequest.responsetext;
+    function stateChange(){
+        if(httpRequest.readyState === 4){
+            if(httpRequest.status === 200){
+                console.log(httpRequest.responseText);
+                messageEl.textContent=httpRequest.responsetext;
+            }
         }
+        console.log("ran");
     }
-    console.log("ran");
 }
 
 request();
