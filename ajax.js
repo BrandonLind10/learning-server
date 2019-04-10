@@ -12,7 +12,7 @@ function request(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
                 let response= JSON.parse(httpRequest.responseText);
-                console.log(response);
+                alert(response);
                 messageEl.textContent= response;
             }
             else {
