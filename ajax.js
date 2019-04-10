@@ -11,7 +11,7 @@ function request(){
     function stateChange(){
         if(httpRequest.readyState === 4){
             if(httpRequest.status === 200){
-                let response= JSON.parse(httpRequest.responeText);
+                let response= JSON.parse(httpRequest.responseText);
                 console.log();
                 messageEl.textContent= response;
             }
