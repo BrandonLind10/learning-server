@@ -23,8 +23,7 @@ function request(){
                 console.log("something went wrong " + httpRequest.status);
             }
         }
-        else{
-            console.log("something went wrong");
+        console.log(httpRequest.readyState);
         }
         console.log("ran");
     }
