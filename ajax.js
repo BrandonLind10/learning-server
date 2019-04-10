@@ -1,3 +1,6 @@
+
+let messageEl = document.getElementsByClassName("message")[0];
+
 function request(){
     let httpRequest = new XMLHttpRequest();
     
@@ -7,6 +10,7 @@ function request(){
     if(httpRequest.readyState === 4){
         if(httpRequest.status === 200){
             console.log(httpRequest.responseText);
+            messageEl.textContent=httpRequest.responsetext;
         }
     }
     console.log("ran");
