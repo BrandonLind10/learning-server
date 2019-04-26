@@ -10,8 +10,12 @@
             let message = document.getElementsByClassName("message")[0];
             
             let getJson =  new XMLHttpRequest();
+            getJson.onreadystatechange= function(){
+                if(this.readyState === 4 && this.status === 200){
+                    console.log("resource found")
+                }
+            }
             getJson.open("GET", "https://brandonlind10.github.io/learning-server/names.json");
-   
             getJson.send();
           
             
