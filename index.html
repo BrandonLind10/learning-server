@@ -5,8 +5,27 @@ b<!DOCTYPE html>
   <body>
     <p class="message">It works!!!!!</p>
       <button class="request-button"/>make request</button>
-      <script src="ajaxTest.js" type="text/javascript">
+    
+      <script>
             
+            let randomName={
+                randomType: ()=>{
+                    let randNum= Math.floor(Math.random() * 3) + 1;
+                    if(randnum === 1) return "female";
+                }
+            }
+            let message= document.getElementsByClassName("message")[0];
+            
+            let request= new XMLHttpRequest();
+            request.onreadystatechange=()=>{
+                if(request.readyState === 4 && request.status === 200){
+                    let response = JSON.parse(request.textResponse);
+                    message.textContent= response.female[0];
+                    console.log(response)
+                }
+            };
+          request.open("GET","https://github.com/BrandonLind10/learning-server/blob/gh-pages/names.json");
+          request.send();
       </script>
   </body>
 </html>
