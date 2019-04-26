@@ -13,13 +13,18 @@
             jsonRequest.onreadystatechange=()=>{
                 if(jsonRequest.readyState === 4 && jsonRequest.status === 200){
                     let response = JSON.parse(jsonRequest.responseText);
-                    message.textContent = response.female[0];
+                    message.textContent = getRandomItem(response.female);
                     console.log(response)
                 }
             }
-            
             jsonRequest.open("GET", "https://brandonlind10.github.io/learning-server/names.json");
             jsonRequest.send();
+          
+          function getRandomItem(array){
+              let randomIndex = Math.floor(Math.random() * array.length);
+              
+              return array[radnomIndex];
+          }
       </script>
   </body>
 </html>
