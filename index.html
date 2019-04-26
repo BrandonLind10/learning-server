@@ -9,17 +9,26 @@
       <script>
             let message = document.getElementsByClassName("message")[0];
             
-            let jsonRequest =  new XMLHttpRequest();
-            jsonRequest.onreadystatechange=()=>{
-                if(jsonRequest.readyState === 4 && jsonRequest.status === 200){
-                    let response = JSON.parse(jsonRequest.responseText);
-                    message.textContent = getRandomItem(response.female);
-                    console.log(response)
-                }
-            }
-            jsonRequest.open("POST", "https://brandonlind10.github.io/learning-server/names.json");
-            jsonRequest.send();
+            let getJson =  new XMLHttpRequest();
+            getJson.open("GET", "https://brandonlind10.github.io/learning-server/names.json");
+   
+            getJson.send();
           
+            
+            let newNameObj = JSON.parse(getJson.responseText);
+            console.log(newNameObj);
+                newNameObj.female.push("nora");
+                newNameObj.male.push("jason");
+                newNameObj.neutral("casey");
+            
+          
+            let sendJson = new XMLHttpRequest();
+            getJson.setRequestHeader("Content-Type","application/json");
+            sendJson.open("POST","https://brandonlind10.github.io/learning-server/names.json");
+            sendJson.send(JSON.stringify(newNameObj));
+
+          
+          let getJson2 
           function getRandomItem(array){
               let randomIndex = Math.floor(Math.random() * array.length);
               
